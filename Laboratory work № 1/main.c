@@ -38,7 +38,9 @@ float min(float line[], int m)
 {
 	int t = m;
 	float res = *line;
-	for (; t-- > 0; ++line) if (*line < res) res = *line;
+	for (; t-- > 0; ++line)
+		if (*line < res)
+			res = *line;
 
 	return res;
 }
@@ -48,7 +50,9 @@ float max(float line[], int m)
 {
 	int t = m;
 	float res = *line;
-	for (; t-- > 0; ++line) if (*line > res) res = *line;
+	for (; t-- > 0; ++line)
+		if (*line > res)
+			res = *line;
 
 	return res;
 }
@@ -103,19 +107,13 @@ void changeMT(matrix* a)
 	{
 		minimum = min(a->lines[i].elements, a->lines[i].numOfElem);
 		maximum = max(a->lines[i].elements, a->lines[i].numOfElem);
-		//printf("\n\n%f			%f \n", minimum, maximum);
 
 		for (s = 0; s < a->lines[i].numOfElem;)
 		{
-			//printf("\n%f\n", a->lines[i].elements[s]);
 			if (a->lines[i].elements[s] == minimum)
-			{
 				a->lines[i].elements[s] = maximum;
-			}
 			else if (a->lines[i].elements[s] == maximum)
-			{
 				a->lines[i].elements[s] = minimum;
-			}
 			s++;
 		}
 		i++;
