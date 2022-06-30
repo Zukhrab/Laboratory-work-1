@@ -33,7 +33,6 @@ int getFloat(float* a)
 	return 1;
 }
 
-
 float min(float line[], int m)
 {
 	int t = m;
@@ -44,7 +43,6 @@ float min(float line[], int m)
 
 	return res;
 }
-
 
 float max(float line[], int m)
 {
@@ -57,7 +55,6 @@ float max(float line[], int m)
 	return res;
 }
 
-
 void erase(matrix* a)
 {
 	int i;
@@ -68,12 +65,10 @@ void erase(matrix* a)
 	a->lines = NULL;
 }
 
-
 void output1(matrix* a)
 {
 	int i;
 	int s;
-	printf("\nInput matrix\n");
 	
 	for (i = 0; i < a->numbOfLines; i++)
 	{
@@ -82,21 +77,6 @@ void output1(matrix* a)
 		printf("\n");
 	}
 }
-
-void output2(matrix* a)
-{
-	int i;
-	int s;
-	printf("\nOutput matrix\n");
-
-	for (i = 0; i < a->numbOfLines; i++)
-	{
-		for (s = 0; s < a->lines[i].numOfElem; s++)
-			printf("%f ", a->lines[i].elements[s]);
-		printf("\n");
-	}
-}
-
 
 void changeMT(matrix* a)
 {
@@ -119,9 +99,6 @@ void changeMT(matrix* a)
 		i++;
 	}
 }
-
-
-
 
 int input(matrix* mt)
 {
@@ -159,7 +136,6 @@ int input(matrix* mt)
 			}
 		} while (m < 1);
 		mt->lines[i].numOfElem = m;
-
 		p = (float*)malloc(sizeof(float) * m);
 		mt->lines[i].elements = p;
 
@@ -175,7 +151,6 @@ int input(matrix* mt)
 	return 1;
 }
 
-
 int main()
 {
 	printf("\n\t\t\t\t\t Laboratory work #1\n");
@@ -187,9 +162,12 @@ int main()
 		printf("Error, end of file, repeat !");
 		return 1;
 	}
+	printf("\nInput matrix\n");
 	output1(&Matrix);
 	changeMT(&Matrix);
-	output2(&Matrix);
+
+	printf("\nOutput matrix\n");
+	output1(&Matrix);
 
 	return 1;
 }
